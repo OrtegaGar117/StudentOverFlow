@@ -32,5 +32,10 @@ StudentOverflow/
 ├── requirements.txt
 └── README.md
 
+
+Estado del proyecto
+En desarrollo - fase de prototipado
+
+
 Autor
-Iván Alberto Ortega García - Desarrolador del proyecto
+Iván Alberto Ortega García - Desarrollador del proyecto
