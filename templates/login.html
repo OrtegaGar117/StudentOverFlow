@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <title>Iniciar Sesión - StudentOverflow</title>
    <!-- Nos vinculamos con la hoja style.css-->
-  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
    <!-- Encabezado de la página-->
   <header>
     <h1>🎓 StudentOverflow</h1>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="register.html">Registrarse</a>
+      <a href="{{ url_for('main.home') }}">Inicio</a>
+      <a href="{{ url_for('main.register_view') }}">Registrarse</a>
     </nav>
   </header>
 
@@ -29,7 +29,7 @@
 
         <button type="submit" class="btn">Entrar</button>
       </form>
-      <p>No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
+      <p>No tienes cuenta? <a href="{{ url_for('main.register_view') }}">Regístrate aquí</a></p>
     </section>
   </main>
 

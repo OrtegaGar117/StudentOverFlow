@@ -5,9 +5,9 @@ from flask_cors import CORS
 db = SQLAlchemy()
 
 def create_app():
-    app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:7224398197.@db.egrhwmrtjufguzfryokz.supabase.co:5432/postgres'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+    app = Flask(__name__, template_folder='../templates', static_folder='../static')
+    app.config.from_object('instance.config.Config')
 
     db.init_app(app)
 

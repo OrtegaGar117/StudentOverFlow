@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <title>Registro - StudentOverflow</title>
    <!-- Nos vinculamos con la hoja style.css-->
-  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <!-- Encabezado de la página -->
   <header>
     <h1>🎓 StudentOverflow</h1>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="login.html">Iniciar sesión</a>
+      <a href="{{ url_for('main.home') }}">Inicio</a>
+      <a href="{{ url_for('main.login_view') }}">Iniciar sesión</a>
     </nav>
   </header>
 
@@ -20,16 +20,16 @@
   <div class="login-container">
     <h2>Registro de Usuario</h2>
     <form action="#" method="post">
-      <input type="text" placeholder="Nombre completo" required>
-      <input type="email" placeholder="Correo electrónico" required>
-      <input type="password" placeholder="Contraseña" required>
-      <input type="password" placeholder="Confirmar contraseña" required>
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <input type="password" name="contraseña" placeholder="Contraseña" required>
+      <input type="password" name="confirmar_contraseña" placeholder="Confirmar contraseña" required>
       <button type="submit">Registrarse</button>
     </form>
 
      <!-- Enlace para usuarios con cuenta activa-->
     <p style="text-align: center; margin-top: 1rem;">
-      ¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a>
+      ¿Ya tienes cuenta? <a href="{{ url_for('main.login_view') }}">Inicia sesión aquí</a>
     </p>
   </div>
 
