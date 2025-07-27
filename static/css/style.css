@@ -208,3 +208,63 @@ footer {
 .respuesta-form button:hover {
   background-color: #8a2be2;
 }
+
+/* ============== CREAR PREGUNTA ================== */
+/* Contenedor principal para el formulario de crear pregunta */
+.crear-pregunta-container {
+  max-width: 600px;              /* Ancho medio para formulario */
+  margin: 3rem auto;             /* Centrado vertical y horizontal */
+  background-color: #1e1e1e;    /* Fondo oscuro, igual que foro */
+  padding: 2rem;                 /* Espacio interno */
+  border-radius: 10px;           /* Bordes redondeados */
+  box-shadow: 0 0 15px rgba(106, 13, 173, 0.4); /* Sombra morada */
+  color: #fff;                  /* Texto blanco */
+  font-family: Arial, sans-serif;
+}
+
+/* Título del formulario */
+.crear-pregunta-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #8a2be2;  /* Morado para destacar */
+}
+
+/* Estilos para etiquetas y campos input, textarea */
+.crear-pregunta-container label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.crear-pregunta-container input[type="text"],
+.crear-pregunta-container textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 1rem;
+  resize: vertical; /* Permite cambiar tamaño vertical del textarea */
+}
+
+/* Botón de enviar */
+.crear-pregunta-container button {
+  margin-top: 1.5rem;
+  width: 100%;
+  background-color: #6a0dad;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.crear-pregunta-container button:hover {
+  background-color: #8a2be2;
+}

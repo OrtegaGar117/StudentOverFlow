@@ -1,7 +1,9 @@
 from flask import Blueprint, request, jsonify, render_template
 from werkzeug.security import generate_password_hash, check_password_hash
-from .models import Usuario  # Asegúrate que el modelo esté en models.py
+from .models import Usuario, Pregunta
 from . import db
+from flask_login import login_required, current_user, login_user
+from .forms import PreguntaForm
 
 main = Blueprint('main', __name__)
 
@@ -47,7 +49,7 @@ def register():
     db.session.add(nuevo_usuario)
     db.session.commit()
 
-    # Si viene de formulario, redirige a login, si es JSON responde JSON
+
     if request.is_json:
         return jsonify({"mensaje": "Usuario registrado con éxito"}), 201
     else:
@@ -55,10 +57,33 @@ def register():
 
 @main.route('/login', methods=['POST'])
 def login():
-    data = request.json
-    usuario = Usuario.query.filter_by(email=data['email']).first()
+    email = request.form.get('email')
+    contrasena = request.form.get('contraseña')
 
-    if usuario and check_password_hash(usuario.contraseña, data['contraseña']):
-        return jsonify({"mensaje": "Login exitoso", "usuario_id": usuario.id}), 200
+    if not email or not contrasena:
+        return render_template('login.html', mensaje="Faltan datos")
+
+    usuario = Usuario.query.filter_by(email=email).first()
+
+    if usuario and check_password_hash(usuario.contraseña, contrasena):
+        login_user(usuario)
+        return render_template('foro.html', mensaje="Login exitoso")
     else:
-        return jsonify({"mensaje": "Credenciales inválidas"}), 401
+        return render_template('login.html', mensaje="Credenciales inválidas")
+
+@main.route('/crear-pregunta', methods=['GET', 'POST'])
+@login_required
+def crear_pregunta():
+    form = PreguntaForm()
+    if form.validate_on_submit():
+        nueva_pregunta = Pregunta(
+            titulo=form.titulo.data,
+            materia=form.materia.data,
+            contenido=form.contenido.data,
+            id_usuario=current_user.id
+        )
+        db.session.add(nueva_pregunta)
+        db.session.commit()
+        flash('Pregunta creada con éxito', 'success')
+        return redirect(url_for('main.foro_view'))
+    return render_template('crear_pregunta.html', form=form)

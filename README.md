@@ -14,7 +14,7 @@ Tecnologías utilizadas
 
 - HTML5
 - CSS3
-- Flask (próximamente en backend)
+- Flask
 - Git y GitHub
 
 
@@ -32,9 +32,6 @@ StudentOverflow/
 ├── requirements.txt
 └── README.md
 
-
-Estado del proyecto
-En desarrollo - fase de prototipado
 
 
 Autor

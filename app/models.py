@@ -1,8 +1,9 @@
 import uuid
 from datetime import datetime
 from . import db
+from flask_login import UserMixin
 
-class Usuario(db.Model):
+class Usuario(db.Model, UserMixin):
     __tablename__ = 'usuarios'
     id = db.Column(db.String, primary_key=True, default=lambda: str(uuid.uuid4()))
     nombre = db.Column(db.String, nullable=False)

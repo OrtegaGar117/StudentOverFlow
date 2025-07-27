@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crear Pregunta - StudentOverflow</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="crear-pregunta-container">
+    <h2>Crear nueva pregunta</h2>
+    <form method="POST" action="{{ url_for('main.crear_pregunta') }}">
+      {{ form.hidden_tag() }}
+
+      <label for="titulo">Título</label>
+      {{ form.titulo(size=50) }}
+
+      <label for="materia">Materia</label>
+      {{ form.materia(size=50) }}
+
+      <label for="contenido">Contenido</label>
+      {{ form.contenido(rows=10, cols=50) }}
+
+      {{ form.submit(class="btn") }}
+    </form>
+    <br>
+    <a href="{{ url_for('main.foro_view') }}">Volver al foro</a>
+  </div>
+</body>
+</html>

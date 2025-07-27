@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 class RegisterForm(FlaskForm):
@@ -14,3 +14,10 @@ class LoginForm(FlaskForm):
     email = StringField('Correo electrónico', validators=[DataRequired(), Email()])
     password = PasswordField('Contraseña', validators=[DataRequired()])
     submit = SubmitField('Iniciar sesión')
+
+
+class PreguntaForm(FlaskForm):
+    titulo = StringField('Título', validators=[DataRequired(), Length(min=5, max=200)])
+    materia = StringField('Materia', validators=[DataRequired(), Length(min=3, max=100)])
+    contenido = TextAreaField('Contenido', validators=[DataRequired(), Length(min=10)])
+    submit = SubmitField('Publicar')
