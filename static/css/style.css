@@ -212,13 +212,13 @@ footer {
 /* ============== CREAR PREGUNTA ================== */
 /* Contenedor principal para el formulario de crear pregunta */
 .crear-pregunta-container {
-  max-width: 600px;              /* Ancho medio para formulario */
-  margin: 3rem auto;             /* Centrado vertical y horizontal */
-  background-color: #1e1e1e;    /* Fondo oscuro, igual que foro */
-  padding: 2rem;                 /* Espacio interno */
-  border-radius: 10px;           /* Bordes redondeados */
-  box-shadow: 0 0 15px rgba(106, 13, 173, 0.4); /* Sombra morada */
-  color: #fff;                  /* Texto blanco */
+  max-width: 600px;      
+  margin: 3rem auto;           
+  background-color: #1e1e1e;    
+  padding: 2rem;                 
+  border-radius: 10px;           
+  box-shadow: 0 0 15px rgba(106, 13, 173, 0.4); 
+  color: #fff;              
   font-family: Arial, sans-serif;
 }
 

@@ -2,22 +2,23 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
+#Formulario de para el registro de usuario
 class RegisterForm(FlaskForm):
     username = StringField('Nombre de usuario', validators=[DataRequired(), Length(min=3, max=20)])
     email = StringField('Correo electrónico', validators=[DataRequired(), Email()])
     password = PasswordField('Contraseña', validators=[DataRequired(), Length(min=6)])
     confirm_password = PasswordField('Confirmar contraseña', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Registrarse')
+    submit = SubmitField('Registrarse') #Botón para enviar el formulario
 
-
+#Formulario para el inicio de sesión
 class LoginForm(FlaskForm):
     email = StringField('Correo electrónico', validators=[DataRequired(), Email()])
     password = PasswordField('Contraseña', validators=[DataRequired()])
-    submit = SubmitField('Iniciar sesión')
+    submit = SubmitField('Iniciar sesión') #Botón para enviar el formulario
 
-
+#Formulario para publicar preguntas en el foro
 class PreguntaForm(FlaskForm):
     titulo = StringField('Título', validators=[DataRequired(), Length(min=5, max=200)])
     materia = StringField('Materia', validators=[DataRequired(), Length(min=3, max=100)])
     contenido = TextAreaField('Contenido', validators=[DataRequired(), Length(min=10)])
-    submit = SubmitField('Publicar')
+    submit = SubmitField('Publicar') #Botón para enviar el formulario
